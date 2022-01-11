@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/btn_1"
+        android:text="버튼1"
+        android:backgroundTint="#6A8097"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="10dp"
+        />
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/btn_2"
+        android:text="버튼1"
+        android:backgroundTint="#153F6A"
+        android:layout_margin="10dp"
+        android:layout_centerInParent="true"
+        />
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/btn_3"
+        android:text="버튼1"
+        android:backgroundTint="#153F6A"
+        android:layout_margin="10dp"
+        android:layout_alignBaseline="@id/btn_2"
+        />
+
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/btn_4"
+        android:text="버튼1"
+        android:backgroundTint="#153F6A"
+        android:layout_margin="10dp"
+        android:layout_below="@id/btn_3"
+        />
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/btn_5"
+        android:text="버튼1"
+        android:backgroundTint="#153F6A"
+        android:layout_margin="10dp"
+        android:layout_centerInParent="true"
+        android:layout_alignParentRight="true"
+        />
+    <Button
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/btn_6"
+        android:text="버튼1"
+        android:backgroundTint="#153F6A"
+        android:layout_margin="10dp"
+        android:layout_toLeftOf="@id/btn_2"
+        />
+
+
+
+
+</RelativeLayout>

@@ -87,8 +87,21 @@ public class MainActivity extends AppCompatActivity implements  View.OnClickList
             startActivity(intent);
         }else if(v.getId() == R.id.btn_call){
             Toast.makeText(MainActivity.this, "전화 버튼 눌러짐.", Toast.LENGTH_SHORT).show();
+            String tel_num ="tel:" + edt_input.getText()+"";
+            Toast.makeText(MainActivity.this, tel_num, Toast.LENGTH_SHORT).show();
+            //제어권을 가지고 있지않음( 전화 서비스는 안드로이드 OS에서 제공하는 동작)
+            //묵시적(암시적) 인텐트.
+            Intent intent = new Intent(Intent.ACTION_DIAL ,
+                        Uri.parse(tel_num)
+                    );
+            startActivity(intent);
         }else if(v.getId() == R.id.btn_new){
             Toast.makeText(MainActivity.this, "새창 버튼 눌러짐.", Toast.LENGTH_SHORT).show();
+            //명시적 인텐트
+            //제어권을 가지고 있음( 우리 소스코드 내부에 있는 액티비티로 이동 )
+            //Intent( 현재 액티비티위치.this , 이동할 액티비티.class)
+            Intent intent = new Intent(MainActivity.this , SubActivity.class);
+            startActivity(intent);
         }
     }
 }
