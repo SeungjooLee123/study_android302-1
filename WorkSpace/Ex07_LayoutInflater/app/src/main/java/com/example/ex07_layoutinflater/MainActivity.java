@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "sub1눌림", Toast.LENGTH_SHORT).show();
                     }
                 });
+                relative = findViewById(R.id.relative);
+                inflater.inflate(R.layout.sub2 , relative , true);
             }
         });
 

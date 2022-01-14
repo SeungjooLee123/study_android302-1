@@ -11,8 +11,10 @@
         android:id="@+id/sub2_btn"
         android:text="버튼"/>
 
-    <CalendarView
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="30dp"
+        android:background="@drawable/background"
         />
 </LinearLayout>

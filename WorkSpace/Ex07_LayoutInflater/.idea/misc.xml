@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Study_Android/WorkSpace/Ex07_LayoutInflater/app/src/main/res/drawable/background.xml" value="0.1234375" />
+        <entry key="..\:/Study_Android/WorkSpace/Ex07_LayoutInflater/app/src/main/res/drawable/ovalobject.xml" value="0.19479166666666667" />
         <entry key="..\:/Study_Android/WorkSpace/Ex07_LayoutInflater/app/src/main/res/layout/activity_main.xml" value="0.10005065856129686" />
         <entry key="..\:/Study_Android/WorkSpace/Ex07_LayoutInflater/app/src/main/res/layout/sub1.xml" value="0.17844202898550723" />
-        <entry key="..\:/Study_Android/WorkSpace/Ex07_LayoutInflater/app/src/main/res/layout/sub2.xml" value="0.17844202898550723" />
+        <entry key="..\:/Study_Android/WorkSpace/Ex07_LayoutInflater/app/src/main/res/layout/sub2.xml" value="0.22" />
       </map>
     </option>
   </component>
