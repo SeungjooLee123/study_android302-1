@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.example.project02_cloneapp1.recyclerview.RecyclerFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -60,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
                     fragment = new GridFragment();
                 }else if (item.getItemId() == R.id.tab5){
                     Toast.makeText(MainActivity.this, "tab5 선택 됨", Toast.LENGTH_SHORT).show();
-                    actionBar.setTitle("뷰");
+                    actionBar.setTitle("뷰(리사이클러뷰)");
+                    fragment = new RecyclerFragment();
                 }
                 // id를 부여하면 자동으로 int로 id를 채번해서 R에서 사용할수있게 됨.
                 //문제 ) 1.몇번 메뉴가 선택되었는지 Toast창으로 띄우기
