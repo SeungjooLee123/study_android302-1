@@ -24,8 +24,7 @@ public class testController extends HttpServlet {
 	SqlSessionFactory sqlSessionFactory;
 	SqlSession session;
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-			//oracle.jdbc.driver. //자동완성 됬는지
-			//Sqlsessiopn  ////자동완성 됬는지
+
 		response.setCharacterEncoding("utf-8");
 		response.setContentType("text/html");
 		request.setCharacterEncoding("utf-8");
