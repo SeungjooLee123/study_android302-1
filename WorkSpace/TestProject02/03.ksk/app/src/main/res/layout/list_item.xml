@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight="0.8"
+        android:layout_height="70dp"
+        android:id="@+id/list_imgv1"
+        android:src="@drawable/ima5"
+        android:layout_marginRight="10dp"/>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_weight="2.5"
+        android:layout_height="70dp"
+        android:orientation="vertical"
+        android:layout_marginRight="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.5"
+            android:text="제목"
+            android:textSize="20dp"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:id="@+id/list_tv1"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.4"
+            android:text="작가명"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            android:id="@+id/list_tv2"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.3"
+            android:text="마지막 업데이트"
+            android:textSize="15dp"
+            android:id="@+id/list_tv3"/>
+    </LinearLayout>
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:layout_height="40dp"
+        android:src="@drawable/bell"
+        android:layout_gravity="center"
+        android:id="@+id/list_imgv2"/>
+
+
+</LinearLayout>

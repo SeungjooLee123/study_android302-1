@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/tab1"
+        android:icon="@android:color/transparent"
+        android:title="메뉴"
+        android:enabled="true"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/tab2"
+        android:icon="@android:color/transparent"
+        android:title="리스트뷰"
+        android:enabled="true"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/tab3"
+        android:icon="@android:color/transparent"
+        android:title="액티비티 띄우기"
+        android:enabled="true"
+        app:showAsAction="always"
+        />
+</menu>

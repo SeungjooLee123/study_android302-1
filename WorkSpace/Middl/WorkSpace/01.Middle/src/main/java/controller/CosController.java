@@ -3,6 +3,7 @@ package controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -21,12 +22,14 @@ public class CosController extends HttpServlet {
 		res.setCharacterEncoding("utf-8");
 		res.setContentType("text/html");
 		req.setCharacterEncoding("utf-8");
+
 		// URL에 ?key=dd 넣으면 
 		//http://localhost/01.Middle/CosController?key=dd   하면 dd  //따라서 String타입만 가능
 		MultipartRequest multi = new MultipartRequest(req, req.getRealPath("/"), 3000000); //숫자=용량	
 		String dtoString = multi.getParameter("dto");
 		Gson gson = new Gson();
 		MemberDTO dto = gson.fromJson(dtoString, MemberDTO.class);
+		System.out.println(dto.getAddr());
 //		String recvData = multi.getParameter("key");
 //		int size = Integer.parseInt( multi.getParameter("size") +"");
 //		for(int i = 0 ; i<size ; i ++) {
@@ -34,8 +37,12 @@ public class CosController extends HttpServlet {
 //		}
 //		System.out.println(recvData);  //null, value 찍힘
 //		
+		MemberDTO resDto = new MemberDTO(999, "pwpw", "Middle", "MiddleAddr");
+		// to , from <=
+		String rtnData = gson.toJson(resDto);
+		System.out.println(rtnData);
 		PrintWriter writer = res.getWriter();
-		writer.print("" + " middle ");
+		writer.print(rtnData);
 	}
 
 }
