@@ -55,8 +55,7 @@ public class JoinActivity extends AppCompatActivity {
         btn_reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(JoinActivity.this, MainActivity.class);
-                startActivity(intent);
+                finish();
             }
         });
 

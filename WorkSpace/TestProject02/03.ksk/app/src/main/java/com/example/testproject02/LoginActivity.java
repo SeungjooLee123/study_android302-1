@@ -16,7 +16,8 @@ public class LoginActivity extends AppCompatActivity {
     CheckBox checkBox;
     String id, pw, name, birth;
     Intent intent;
-    MemberDTO dto = new MemberDTO(null, null, null, null);
+    MemberDTO dto ;
+    MemberDTO adminDto = new MemberDTO("admin", "admin", "관리자","없음");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,42 +30,6 @@ public class LoginActivity extends AppCompatActivity {
 
         checkBox = findViewById(R.id.checkbox);
 
-        //로그인 처리
-        btn_login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                id = edit_id.getText().toString().replace(" ", "");
-                pw = edit_pw.getText().toString().replace(" ", "");;
-                if(!id.equals("")&& !pw.equals("")){
-                    if(id.equals("Admin") && pw.equals("Admin")){
-                        dto = new MemberDTO(id, pw, "관리자", "2022/01/23");
-                        Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
-                        intent = new Intent(LoginActivity.this, ContentActivity.class);
-                        intent.putExtra("dto", dto);
-                        startActivity(intent);
-                    }else if(id.equals(dto.getId()) && pw.equals(dto.getPw())){
-                        Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
-                        intent = new Intent(LoginActivity.this, ContentActivity.class);
-                        intent.putExtra("dto", dto);
-                        startActivity(intent);
-                    }else if(dto.getId() == null){
-                        Toast.makeText(getApplicationContext(), "회원가입을 해주세요", Toast.LENGTH_SHORT).show();
-                    }
-                }else {
-                    Toast.makeText(getApplicationContext(), "모두 입력해 주세요.", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        //회원가입 화면으로 이동
-        btn_join = findViewById(R.id.btn_join);
-        btn_join.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                intent = new Intent(LoginActivity.this, JoinActivity.class);
-                startActivity(intent);
-            }
-        });
 
         //회원가입에서 넘어온 id와 pw 처리
         intent = getIntent();
@@ -78,5 +43,47 @@ public class LoginActivity extends AppCompatActivity {
             edit_pw.setText(pw);
             checkBox.setChecked(true);
         };
+
+        //로그인 처리
+        btn_login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                id = edit_id.getText().toString().replace(" ", "");
+                pw = edit_pw.getText().toString().replace(" ", "");;
+                if(id.equals("")&& pw.equals("")){
+                    Toast.makeText(getApplicationContext(), "모두 입력해 주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                // && ||
+                // and or
+                // 모든 조건 , 하나만
+                //
+
+                    if( (adminDto.getId().equals("Admin") && adminDto.getPw().equals("Admin")) ||
+                            dto != null && id.equals(dto.getId()) && pw.equals(dto.getPw())
+                    ){
+
+                        Toast.makeText(getApplicationContext(), "로그인 성공", Toast.LENGTH_SHORT).show();
+                        intent = new Intent(LoginActivity.this, ContentActivity.class);
+                        intent.putExtra("dto", dto);
+                        startActivity(intent);
+                    }else {
+                        Toast.makeText(getApplicationContext(), "회원가입을 해주세요", Toast.LENGTH_SHORT).show();
+                    }
+
+            }
+        });
+
+        //회원가입 화면으로 이동
+        btn_join = findViewById(R.id.btn_join);
+        btn_join.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                intent = new Intent(LoginActivity.this, JoinActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
     }
 }
