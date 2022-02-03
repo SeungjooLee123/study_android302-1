@@ -21,5 +21,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/btn_viewpager2"
-        android:text="뷰페이저2 사용해보기"/>
+        android:text="뷰페이저 DB연동"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_glide"
+        android:text="인터넷 url 이미지 붙이기"/>
 </LinearLayout>

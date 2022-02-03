@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Study_Android/WorkSpace/Project03_RycyclerPager/app/src/main/res/layout/activity_glide.xml" value="0.171875" />
         <entry key="..\:/Study_Android/WorkSpace/Project03_RycyclerPager/app/src/main/res/layout/activity_main.xml" value="0.21770833333333334" />
+        <entry key="..\:/Study_Android/WorkSpace/Project03_RycyclerPager/app/src/main/res/layout/activity_pager.xml" value="0.2" />
+        <entry key="..\:/Study_Android/WorkSpace/Project03_RycyclerPager/app/src/main/res/layout/activity_pager_db.xml" value="0.25" />
         <entry key="..\:/Study_Android/WorkSpace/Project03_RycyclerPager/app/src/main/res/layout/activity_recycler.xml" value="0.21770833333333334" />
         <entry key="..\:/Study_Android/WorkSpace/Project03_RycyclerPager/app/src/main/res/layout/fragment_rec.xml" value="0.24583333333333332" />
+        <entry key="..\:/Study_Android/WorkSpace/Project03_RycyclerPager/app/src/main/res/layout/pager_item.xml" value="0.171875" />
         <entry key="..\:/Study_Android/WorkSpace/Project03_RycyclerPager/app/src/main/res/layout/rec_item.xml" value="0.24583333333333332" />
       </map>
     </option>

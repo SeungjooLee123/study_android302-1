@@ -15,6 +15,15 @@
         android:theme="@style/Theme.Project03_RycyclerPager"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".viewglide.GlideActivity"
+            android:exported="false" />
+        <activity
+            android:name=".viewpagerdb.PagerDbActivity"
+            android:exported="false" />
+        <activity
+            android:name=".viewpager.PagerActivity"
+            android:exported="false" />
+        <activity
             android:name=".recycler.RecyclerActivity"
             android:exported="false" />
 
