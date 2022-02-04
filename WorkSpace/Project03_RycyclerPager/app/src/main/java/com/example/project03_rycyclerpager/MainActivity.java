@@ -10,12 +10,13 @@ import android.widget.Button;
 import com.example.project03_rycyclerpager.common.AskTask;
 import com.example.project03_rycyclerpager.recycler.RecyclerActivity;
 import com.example.project03_rycyclerpager.viewglide.GlideActivity;
+import com.example.project03_rycyclerpager.viewglide.GlidePagerActivity;
 import com.example.project03_rycyclerpager.viewpager.PagerActivity;
 import com.example.project03_rycyclerpager.viewpagerdb.PagerDbActivity;
 
 public class MainActivity extends AppCompatActivity
     implements View.OnClickListener{
-Button btn_rycycler , btn_viewpager , btn_viewpager2 , btn_glide;
+Button btn_rycycler , btn_viewpager , btn_viewpager2 , btn_glide , btn_glidepager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,10 +26,12 @@ Button btn_rycycler , btn_viewpager , btn_viewpager2 , btn_glide;
         btn_viewpager = findViewById(R.id.btn_viewpager);
         btn_viewpager2 = findViewById(R.id.btn_viewpager2);
         btn_glide = findViewById(R.id.btn_glide);
+        btn_glidepager = findViewById(R.id.btn_glidepager);
         btn_rycycler.setOnClickListener(this);
         btn_viewpager.setOnClickListener(this);
         btn_viewpager2.setOnClickListener(this);
         btn_glide.setOnClickListener(this);
+        btn_glidepager.setOnClickListener(this);
 
 
     }
@@ -46,6 +49,9 @@ Button btn_rycycler , btn_viewpager , btn_viewpager2 , btn_glide;
             startActivity(intent);
         }else if(v.getId() == R.id.btn_glide){
             Intent intent = new Intent(MainActivity.this , GlideActivity.class);
+            startActivity(intent);
+        }else if(v.getId() == R.id.btn_glidepager){
+            Intent intent = new Intent(MainActivity.this , GlidePagerActivity.class);
             startActivity(intent);
         }
     }

@@ -28,4 +28,9 @@
         android:layout_height="wrap_content"
         android:id="@+id/btn_glide"
         android:text="인터넷 url 이미지 붙이기"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_glidepager"
+        android:text="Glide Pager 연동"/>
 </LinearLayout>
