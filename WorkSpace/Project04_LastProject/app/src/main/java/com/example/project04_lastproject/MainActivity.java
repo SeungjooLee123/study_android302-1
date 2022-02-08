@@ -3,8 +3,10 @@ package com.example.project04_lastproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.os.StrictMode;
 
 import com.example.project04_lastproject.common.AskTask;
+import com.example.project04_lastproject.customer.CustomerMainFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -12,7 +14,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        AskTask askTask = new AskTask("aaa.te");
-        askTask.execute();
+
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container , new CustomerMainFragment()).commit();
+        //AskTask askTask = new AskTask("aaa.te");
+        //askTask.execute();
     }
 }

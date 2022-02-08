@@ -15,10 +15,13 @@
         android:theme="@style/Theme.Project04_LastProject"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".member.JoinActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".member.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
