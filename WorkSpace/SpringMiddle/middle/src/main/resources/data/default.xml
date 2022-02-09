@@ -28,6 +28,12 @@
 	<constructor-arg name="sqlSessionFactory"  ref="factory" />
 </bean>
 
+<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver" >
+	<property name="maxUploadSize" value="20000000" />
+	<property name="defaultEncoding" value="utf-8"/>
+</bean>
+
+
 </beans>
 
 

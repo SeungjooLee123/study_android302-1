@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import com.google.gson.Gson;
 
@@ -35,4 +37,13 @@ public class CustomerController {
 		
 		
 	}
+	@ResponseBody
+	@RequestMapping ( "/update.cu")
+	public void update_customer(HttpServletRequest req) {
+		System.out.println("안드로이드에서 접근함.");
+		String getData = req.getParameter("vo");
+		System.out.println(getData);
+		
+	}
+	
 }

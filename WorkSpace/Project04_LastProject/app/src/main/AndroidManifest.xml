@@ -15,6 +15,9 @@
         android:theme="@style/Theme.Project04_LastProject"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".customer.CustomerActivity"
+            android:exported="false" />
+        <activity
             android:name=".member.JoinActivity"
             android:exported="false" />
         <activity
