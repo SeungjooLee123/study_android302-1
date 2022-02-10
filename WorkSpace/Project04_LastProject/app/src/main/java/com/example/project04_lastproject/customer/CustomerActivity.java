@@ -88,9 +88,12 @@ public class CustomerActivity extends AppCompatActivity {
                 AskTask task = new AskTask("update.cu");
                 task.addParam("vo" , gson.toJson(vo)); // Spring에 갈때 파라메터를 추가해서 가기.
                 CommonMethod.excuteGet(task);
+                finish();
             }
         });
 
 
     }
+
+
 }
