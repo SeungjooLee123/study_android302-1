@@ -2,11 +2,20 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="employee.mapper" >
 	<select id="select" resultType="employees.EmployeeVO">
-		select *
-	from employees e
+			select e.employee_id , e.first_name|| ' ' || e.last_name name ,
+			   d.department_name , l.city , c.country_name
+			   
+	FROM employees e left outer join departments d on e.department_id = d.department_id
+					 left outer join locations l on d.location_id = l.location_id
+					 left outer join countries c on c.country_id = l.country_id
+    WHERE UPPER(e.first_name|| ' ' || e.last_name) LIKE '%'||UPPER(#{search,jdbcType=VARCHAR})||'%' 
+    OR  UPPER(d.department_name) LIKE '%'||UPPER(#{search,jdbcType=VARCHAR})||'%'
+    OR  UPPER(l.city) LIKE '%'||UPPER(#{search,jdbcType=VARCHAR})||'%'
+    OR  UPPER(l.city) LIKE '%'||UPPER(#{search,jdbcType=VARCHAR})||'%'
+    OR  UPPER( c.country_name) LIKE '%'||UPPER(#{search,jdbcType=VARCHAR})||'%' 
 	order by employee_id
 	
-	</select>S
+	</select>
 </mapper>
 
 
