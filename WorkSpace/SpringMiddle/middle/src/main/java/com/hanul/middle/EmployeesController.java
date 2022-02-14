@@ -31,6 +31,7 @@ public class EmployeesController {
 	@RequestMapping ("/list.hr")
 	public void list(HttpServletRequest req , HttpServletResponse res ) throws IOException {
 		String search = req.getParameter("search");
+		System.out.println(search);
 		List<EmployeeVO> list = dao.employee_list(search);
 		PrintWriter writer = res.getWriter();
 		res.setCharacterEncoding("utf-8");

@@ -42,7 +42,9 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String id = edt_id.getText() + "";
                 String pw = edt_pw.getText() + "";
-                if (id.equals("aaa") && pw.equals("bbbb")) {
+                MemberDAO dao = new MemberDAO();
+                if (dao.isLogin(id , pw)) {
+                    // 기존 로그인 => 하드코딩 (테스트용) id.equals("aaasa") && pw.equals("bbbb")
                     saveLoginInfo();
                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(intent);

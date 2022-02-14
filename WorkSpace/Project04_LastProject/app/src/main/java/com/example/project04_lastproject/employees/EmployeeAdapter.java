@@ -42,6 +42,16 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
     }
 
     @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public int getItemViewType(int position) {
+        return position;
+    }
+
+    @Override
     public int getItemCount() {
         return list.size();
     }
@@ -60,7 +70,19 @@ public class EmployeeAdapter extends RecyclerView.Adapter<EmployeeAdapter.ViewHo
         }
 
         public void bind(@NonNull ViewHolder holder, int i) {
-        
+            if(list.get(i).getEmployee_id() == 100){
+                layout.setBackgroundResource(R.drawable.card_bg2);
+            }else if (list.get(i).getEmployee_id() % 2 == 0){
+                layout.setBackgroundResource(R.drawable.card_bg3);
+            }
+            holder.layout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    EmployeeDialog dialog = new EmployeeDialog(context);
+                    dialog.show();
+                }
+            });
+
             holder.tv_empid.setText("( no : " + list.get(i).getEmployee_id()+")");
             holder.tv_deptname.setText(list.get(i).getDepartment_name());
             holder.tv_city.setText(list.get(i).getCity());
