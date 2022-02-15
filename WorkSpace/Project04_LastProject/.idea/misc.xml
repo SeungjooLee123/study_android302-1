@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Study_Android/WorkSpace/Project04_LastProject/app/src/main/res/drawable/btm_nav_color.xml" value="0.1984375" />
         <entry key="..\:/Study_Android/WorkSpace/Project04_LastProject/app/src/main/res/drawable/card_bg1.xml" value="0.27760416666666665" />
         <entry key="..\:/Study_Android/WorkSpace/Project04_LastProject/app/src/main/res/drawable/card_bg2.xml" value="0.27760416666666665" />
         <entry key="..\:/Study_Android/WorkSpace/Project04_LastProject/app/src/main/res/drawable/card_bg3.xml" value="0.27760416666666665" />
@@ -15,6 +16,7 @@
         <entry key="..\:/Study_Android/WorkSpace/Project04_LastProject/app/src/main/res/layout/emp_item.xml" value="0.21458333333333332" />
         <entry key="..\:/Study_Android/WorkSpace/Project04_LastProject/app/src/main/res/layout/fragment_customer_main.xml" value="0.21458333333333332" />
         <entry key="..\:/Study_Android/WorkSpace/Project04_LastProject/app/src/main/res/layout/fragment_employee.xml" value="0.33" />
+        <entry key="..\:/Study_Android/WorkSpace/Project04_LastProject/app/src/main/res/menu/btm_navmenu.xml" value="0.5" />
       </map>
     </option>
   </component>
