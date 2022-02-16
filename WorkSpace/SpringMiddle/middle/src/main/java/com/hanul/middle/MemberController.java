@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -28,6 +29,16 @@ public class MemberController {
 	@Autowired private MemberDAO dao;
 	Gson gson = new Gson();
 
+	
+	@ResponseBody
+	@RequestMapping(value =  "/kakaoLogin", produces="application/json;charset=UTF-8" )
+	public String kakaoLogin(HttpServletRequest req) {
+		String id = req.getParameter("id");
+		MemberVO vo =  dao.member_kakao(id);
+		
+		return gson.toJson(vo);
+	}
+	
 	public void logout(HttpSession session) {
 		// Android에서는 공통으로 사용할 static변수를 null로 비우고 페이지를 로그인 전 화면으로 이동시키거나
 		//로그인 화면으로 이동만 하면 됨.

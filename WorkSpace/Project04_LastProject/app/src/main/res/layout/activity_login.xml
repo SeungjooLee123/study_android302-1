@@ -57,14 +57,24 @@
         android:id="@+id/chk_auto"/>
     <Button
         android:layout_gravity="center"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="로그인"
         android:backgroundTint="#1E5F24"
         android:id="@+id/btn_login"/>
+
+    <ImageView
+        android:layout_gravity="center"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:text="로그인"
+        android:src="@drawable/kakao_login_medium_narrow"
+        android:id="@+id/imgv_kakao"/>
+
+
     <Button
         android:layout_gravity="center"
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:text="회원 가입"
         android:backgroundTint="#123456"

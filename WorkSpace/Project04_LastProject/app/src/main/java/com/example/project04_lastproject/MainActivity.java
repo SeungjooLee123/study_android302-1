@@ -18,6 +18,7 @@ import com.example.project04_lastproject.common.AskTask;
 import com.example.project04_lastproject.customer.CustomerMainFragment;
 import com.example.project04_lastproject.employees.EmployeeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -47,12 +48,21 @@ public class MainActivity extends AppCompatActivity {
         //AskTask askTask = new AskTask("aaa.te");
         //askTask.execute();
 
+        btm_nav.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+
+            }
+        });
         btm_nav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                /*if(! nowFragment.getClass().isInstance( backFragment ) ){
+
+
+                if(! nowFragment.getClass().isInstance( backFragment ) ){
                     backFragment = nowFragment ; // 두개의 프래그먼트가 다르다면 .
-                }*/
+                }
+
 
                 if(item.getItemId() == R.id.menu_cus){
                     nowFragment = new CustomerMainFragment();
@@ -94,8 +104,6 @@ public class MainActivity extends AppCompatActivity {
             if(CustomerMainFragment.class.isInstance(nowFragment)){
                 String aa = "";
                 finish();
-            }else if(EmployeeFragment.class.isInstance(nowFragment)){
-                btm_nav.setSelectedItemId(R.id.menu_cus);
             }else{
                 String aa = "";
             }//else 부분이 비정상적으로 실행이 안되는 블럭으로 인식이 됨.

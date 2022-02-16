@@ -18,6 +18,10 @@ public class MemberDAO {
 		return false;
 	}
 
+	public MemberVO member_kakao(String id) {
+		return sql.selectOne("member.mapper.kakao", id);
+	}
+	
 	
 	public MemberVO member_login(HashMap<String, String> map) {
 		return sql.selectOne("member.mapper.login", map);

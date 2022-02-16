@@ -9,6 +9,13 @@
 	and pw = #{pw}
 </select>
 
+<select id="kakao" resultType="member.MemberVO">
+	select * from s_member
+	where id = #{id, jdbcType=VARCHAR}
+</select>
+
+
+
 </mapper>
 
 
