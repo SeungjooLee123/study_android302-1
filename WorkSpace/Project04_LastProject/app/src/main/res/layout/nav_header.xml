@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    android:orientation="vertical"
+    android:background="#156984"
+    android:padding="20dp">
+
+    <ImageView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:id="@+id/imgv_profile"
+        android:padding="8dp"
+        android:src="@drawable/ic_launcher_background"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그인 아이디를 보여주고 환영합니다. 글씨"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:id="@+id/tv_logid"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="무슨무슨 어플 대충 아무글씨"
+        android:textColor="#ffffff"
+        android:id="@+id/tv_string"/>
+
+</LinearLayout>

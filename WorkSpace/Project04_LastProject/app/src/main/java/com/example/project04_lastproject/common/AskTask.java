@@ -8,8 +8,10 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.HttpMultipartMode;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.FileBody;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -24,13 +26,20 @@ public class AskTask extends AsyncTask<String , String , InputStream> {
     final String SVRPATH = "/middle/";
     String mapping;
     private String postUrl ;
+    //String형태의 json구조를 가진 파라메터들을 추가할때사용 ,addTextBody
     ArrayList<ParamDTO> params = new ArrayList<>();
+    //String으로 경로를 받아와서 File로 바꿔서 파라메터로 사용 , addPart(File)
+    ArrayList<ParamDTO> fileParams = new ArrayList<>();
     public AskTask(String mapping) {
         this.mapping = mapping;
     }
 
     public void addParam(String key , String value){
         params.add(new ParamDTO(key , value));
+    }
+
+    public void addFileParam(String key , String value){
+        fileParams.add(new ParamDTO(key , value));
     }
 
     @Override
@@ -43,6 +52,11 @@ public class AskTask extends AsyncTask<String , String , InputStream> {
                 builder.addTextBody( params.get(i).getKey()  ,  params.get(i).getValue()
                 , ContentType.create("Multipart/related" , "UTF-8") );
         }
+
+        for(int i=0 ; i<fileParams.size() ; i++){                   //파일 경로
+            builder.addPart( fileParams.get(i).getKey()  ,  new FileBody( new File(fileParams.get(i).getValue()) ) );
+        }
+
         httpClient = AndroidHttpClient.newInstance("Android");//<=요청한 플랫폼(Android고정)
         httpPost = new HttpPost(postUrl);
         httpPost.setEntity(builder.build());

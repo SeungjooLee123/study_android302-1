@@ -2,7 +2,17 @@ package com.example.project04_lastproject.member;
 
 public class MemberVO {
 
-	private String id, name, pw, addr, post, tel, gender, email, birth, admin;
+	private String id, name, pw, addr, post, tel, gender, email, birth, admin , img_path;
+	
+	
+	
+	public String getImg_path() {
+		return img_path;
+	}
+
+	public void setImg_path(String img_path) {
+		this.img_path = img_path;
+	}
 
 	public String getId() {
 		return id;

@@ -1,7 +1,11 @@
 package com.example.project04_lastproject;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.content.pm.PackageInfo;
@@ -12,31 +16,65 @@ import android.os.StrictMode;
 import android.util.Base64;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.project04_lastproject.common.AskTask;
+import com.example.project04_lastproject.common.CommonVal;
 import com.example.project04_lastproject.customer.CustomerMainFragment;
 import com.example.project04_lastproject.employees.EmployeeFragment;
+import com.example.project04_lastproject.notice.NoticeFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
+import com.google.android.material.navigation.NavigationView;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView btm_nav;
-
     Fragment nowFragment ;
     Fragment backFragment ;
     int index = 0 ;
     //SWAP을 이용하면 이전과 현재 프래그먼트를 저장해놓고 동적으로 사용하는것이 가능함.
     //addBackStackTrace등 제공하는 메소드
     // ( <= 될때가 있고 안될때가있음 , 자바코드로 직접 작성을 하면 디버깅과 안정성이 더 좋음 )
+
+    Toolbar toolbar ;
+    NavigationView nav_main;
+    DrawerLayout drawer_Layout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        getHashKey();
+
+        View decorView = getWindow().getDecorView();
+        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN);//시계영역을 없애기 처리.
+
+        toolbar = findViewById(R.id.toolbar);
+        drawer_Layout = findViewById(R.id.drawer_layout);
+        nav_main = findViewById(R.id.nav_main);
+        setSupportActionBar(toolbar);
+        //햄버거 버튼 (토글 ) 만들기
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+            this , drawer_Layout , toolbar ,
+                R.string.drawer_open , R.string.drawer_close
+        );
+        drawer_Layout.addDrawerListener(toggle);//액션바와 drawer_layout의 관계를 만듬
+        toggle.syncState();
+
+        View nav_hearview = nav_main.getHeaderView(0);
+        ImageView imgv_profile = nav_hearview.findViewById(R.id.imgv_profile);
+        TextView tv_logid = nav_hearview.findViewById(R.id.tv_logid);
+
+        Glide.with(MainActivity.this).load(CommonVal.loginInfo.getImg_path()).into(imgv_profile);
+        tv_logid.setText(CommonVal.loginInfo.getId() + "님 환영");
+
+        //getHashKey(); <= API를 사용하다가 필요하면 호출해서 사용하기.
         btm_nav = findViewById(R.id.btm_nav);
 
         StrictMode.ThreadPolicy policy =
@@ -45,8 +83,24 @@ public class MainActivity extends AppCompatActivity {
         //
         nowFragment = new CustomerMainFragment();
         changeFragment(nowFragment);
+
         //AskTask askTask = new AskTask("aaa.te");
         //askTask.execute();
+        nav_main.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId() == R.id.nav_menu_cus){
+                    btm_nav.setSelectedItemId(R.id.menu_cus);
+                }else if (item.getItemId() == R.id.nav_menu_emp){
+                    btm_nav.setSelectedItemId(R.id.menu_emp);
+                }else if (item.getItemId() == R.id.nav_menu_notice) {
+                    btm_nav.setSelectedItemId(R.id.menu_notice);
+                }
+                drawer_Layout.closeDrawer(GravityCompat.START);
+                    return true;
+            }
+        });
+
 
         btm_nav.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
             @Override
@@ -66,8 +120,13 @@ public class MainActivity extends AppCompatActivity {
 
                 if(item.getItemId() == R.id.menu_cus){
                     nowFragment = new CustomerMainFragment();
+                    toolbar.setTitle("고객 관리");
                 }else if(item.getItemId() == R.id.menu_emp){
                     nowFragment = new EmployeeFragment();
+                    toolbar.setTitle("사원 관리");
+                }else if(item.getItemId() == R.id.menu_notice){
+                    nowFragment = new NoticeFragment();
+                    toolbar.setTitle("공지 사항");
                 }
                 changeFragment(nowFragment);
                 return true;

@@ -1,0 +1,35 @@
+Toggle ( 반전 )
+앱바와 연동해서 어떤 처리를 할수있는 화면을 별도로 띄움.
+기본적으로 감춰져 있다가 나옴.
+앱바와 연동해서 쓸때 규칙
+
+AppbarLayout을 넣기위해서는 반드시 상위에 CoordinatorLayout이라는것이 들어갈것.
+
+Drawerlayout이라는것을 반드시 사용할것 ( NavigationView )
+
+
+계층도
+       <DrawerLayout>
+        <CoordinatorLayout>
+            <AppBarLayout>
+                <Toolbar>
+
+==액션바를 커스텀해서 사용하기위해서는 반드시 Theme파일에 가서 NoActionbar라는 속성을가진 테마로 변경을 해줘야함.
+=>res/values/themes ( 밝은 모드 , 어두운 모드 ) 테마.
+
+NavigationView<-넣은 순간 뒤에 위젯들이 가려짐(View , 레이아웃들)
+Visivility속성이용해서 보이게 처리 안보이게 처리 하면서 작업하면 됨.
+
+
+NavigationView<-를 만들때 규칙.
+hearLayout <= 머리글로 보여질 레이아웃을 미리 지정해놓고 보여주는 부분.
+menu <= 미리 메뉴를 만들어놓고 보여지게 하는 부분.
+com.google.android.material.navigation.NavigationView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:fitsSystemWindows="true"
+            app:menu="넣을 메뉴"
+            app:headerLayout="머리글로보여질부분"
+
+

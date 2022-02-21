@@ -174,6 +174,8 @@ public class LoginActivity extends AppCompatActivity {
                 if(vo!=null){
                     //로그인 된 회원임.
                     CommonVal.loginInfo = vo ;
+                    Intent intent = new Intent(LoginActivity.this , MainActivity.class);
+                    startActivity(intent);
                 }else{
                     //회원가입을 진행.
                     Intent intent = new Intent(LoginActivity.this , JoinActivity.class);
